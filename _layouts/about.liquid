@@ -37,10 +37,12 @@ layout: default
         {% endif %}
       </div>
     {% endif %}
-
+    
     <div class="clearfix">{{ content }}</div>
+    {% include scroll-line.html %}
 
-    <!-- News -->
+
+    {% comment %} <!-- News -->
     {% if page.news and site.announcements.enabled %}
       <h2>
         <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
@@ -75,6 +77,6 @@ layout: default
 
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
-    {% endif %}
+    {% endif %} {% endcomment %}
   </article>
 </div>
