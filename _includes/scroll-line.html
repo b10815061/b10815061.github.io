@@ -107,12 +107,10 @@
 .bg-white { background-color: white; }
 .pointer-events-none { pointer-events: none; }
 
-#profileContainer {
-  width: 50px;
-  height: 50px;
-  will-change: left, top;
+/* .profile {
   position: absolute;
-}
+  z-index: 999;
+} */
 
 .profile-image {
   width: 50px;
@@ -208,27 +206,71 @@ document.addEventListener('DOMContentLoaded', function() {
   let path = [{ x: PATH_CENTER_X, y: 0 }];
   const pathElement = document.getElementById('scrollPath');
   const achievementsContainer = document.getElementById('achievementsContainer');
-  const STEP_SIZE = 5;
+  const STEP_SIZE = 7;
   const SEGMENT_HEIGHT = TOTAL_HEIGHT / (ACHIEVEMENTS_COUNT + 1);
   const PATH_AMPLITUDE = Math.min(100, CONTAINER_WIDTH * 0.15); // Adjust amplitude based on container width
 
   const profile_image = document.querySelector('.img-fluid');
-  console.log(profile_image);
 
-  const profileContainer = document.querySelector('.img-fluid');
+  const profileContainer = document.querySelector('.profile');
+  console.log(profileContainer.offsetLeft);
+  console.log(profileContainer.offsetTop);
+  let init_x = profileContainer.offsetLeft
+  let init_y = profileContainer.offsetTop
+
   const PROFILE_SIZE = 50;
+  
 
   // Modify your generateSmoothPath function to track the frontier point:
   let frontierPoint = { x: PATH_CENTER_X, y: 0 };
 
   function updateProfilePosition(x, y) {
-    // Center the profile image on the path
-    const offsetX = x - (PROFILE_SIZE / 2);
-    const offsetY = y - (PROFILE_SIZE / 2);
-    profileContainer.style.left = `${offsetX}px`;
-    profileContainer.style.top = `${offsetY}px`;
-    console.log(profileContainer.style.left);
-    console.log(profileContainer.style.top);
+      const scrollY = window.scrollY;
+      const containerRect = container.getBoundingClientRect();
+      const containerOffsetX = containerRect.left;
+      const containerOffsetY = containerRect.top + window.scrollY;
+      
+
+      let finalX = x + containerOffsetX - (parseInt(profileContainer.querySelector('.img-fluid').style.width,10)/2);  // Add container's left offset
+      let finalY = scrollY + containerOffsetY - (parseInt(profileContainer.querySelector('.img-fluid').style.height,10)/2); // Add container's top offset
+
+      if(scrollY <= 50) {
+          // Stay at initial position
+          profileContainer.style.position = null;
+      }
+      else if (scrollY <= 510) { // 510 is the tunned value
+          profileContainer.style.position = 'absolute';
+          profileContainer.style.zIndex = 999;
+
+          // when scrollY is 50, stay at init
+          // when scrollY is 500, get to the line's head
+
+          // Gradually transition to the line
+          line_start = (init_x, init_y)
+          console.log(init_x, init_y)
+          // calculate the final position
+          const line_end_x = containerRect.left + Math.sin(500 / TOTAL_HEIGHT * Math.PI * ACHIEVEMENTS_COUNT) * PATH_AMPLITUDE + PATH_CENTER_X;
+          const line_end_y = 500 + containerRect.top + 500;
+          line_end = (line_end_x, line_end_y);
+
+          console.log(scrollY)
+          const transitionProgress =  (scrollY - 50) / (500 - 50); // Will go from 0 to 1
+          console.log(transitionProgress);
+
+          // Smoothly transition size from 100px to 50px
+          const currentSize = 100 - (50 * transitionProgress); // Will go from 100 to 50
+          profileContainer.querySelector('.img-fluid').style.width = `${currentSize}px`;
+          profileContainer.querySelector('.img-fluid').style.height = `${currentSize}px`;
+
+
+          // where are we going to be at the line?          
+          finalX = init_x + (line_end_x - init_x) * transitionProgress;
+          finalY = init_y + (line_end_y - init_y) * transitionProgress;
+      } 
+      // else use the x, y values directly (follow the line)
+      
+      profileContainer.style.left = finalX + 'px';
+      profileContainer.style.top = finalY + 'px';
   }
 
   function createOrUpdateAchievement(achievement, x, y) {
@@ -274,11 +316,11 @@ document.addEventListener('DOMContentLoaded', function() {
   function generateSmoothPath(targetY) {
     const newPath = [{ x: PATH_CENTER_X, y: 0 }];
     let currentY = 0;
-    
+    let x
     while (currentY < targetY) {
       const progress = currentY / TOTAL_HEIGHT;
       const wave = Math.sin(progress * Math.PI * ACHIEVEMENTS_COUNT) * PATH_AMPLITUDE;
-      const x = PATH_CENTER_X + wave;
+      x = PATH_CENTER_X + wave;
       
       newPath.push({ x, y: currentY });
       currentY += STEP_SIZE;
@@ -286,6 +328,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update frontier point to the last visible point
     frontierPoint = newPath[newPath.length - 1];
+    console.log(newPath)
+    console.log(x,targetY)
     updateProfilePosition(frontierPoint.x, frontierPoint.y);
     
     return newPath;
