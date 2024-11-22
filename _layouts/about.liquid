@@ -14,7 +14,7 @@ layout: default
     <p class="desc">{{ page.subtitle }}</p>
   </header> {% endcomment %}
 
-  <article>
+  {% comment %} <article> {% endcomment %}
     {% comment %} {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
@@ -79,5 +79,5 @@ layout: default
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
     {% endif %} {% endcomment %}
-  </article>
+  {% comment %} </article> {% endcomment %}
 </div>
