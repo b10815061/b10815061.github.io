@@ -1,81 +1,59 @@
 ---
 layout: page
-title: project 3 with very long name
+title: new annotation website
 description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
+img: assets/img/new_annotation_system/filter_page.png
 importance: 3
-category: work
+category: work 
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+After the first prototype and some negotiation with the domain expert. We set off to build the second version of our website with some key features essential for us or recommended by the skating coach.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/new_annotation_system/login.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/new_annotation_system/signup.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    The login and signup page, utilized for multiple coach usage. This helps our system to scale up quickly.
 </div>
+
+The main filter page: we filtered the action type into cards to better visualize them.
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/new_annotation_system/filter_page.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     This image can also have a caption. It's like magic.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+The main annotation page. During our experiments, several problems arise:
+
+1. It is hard to tell the performed action and the rotate count by us, it would be more reasonable to let the domain experts determine the jump they are currently annotated on.
+2. Since we are able to visualize the skeleton information, we are curious how precise our model is focusing on each keypoints. We add a new slot for the coaches to enter which part of the body the learners should focus on. This will greatly help us to check if our model is paying attention to the correct part of the body.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/new_annotation_system/annotation_page.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+A complete demonstration is shown, in the demo we have shown the following aspects:
 
-{% raw %}
+1. The filter page
+2. Collections of task in each actions
+3. A fine-grained annotation process
+4. Jump type / Rotate count selection
+5. Body part selection
+6. Drag function to quickly relocate the annotaion, if more than one annotation span at the exact timestamp, the later one will be pushed to the second line.
 
-```html
 <div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include project_video.liquid path="assets/img/new_annotation_system/new_sys_demo.mp4" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
 </div>
-```
-
-{% endraw %}

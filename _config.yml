@@ -198,6 +198,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:title/
+  teachings:
+    output: true
+    permalink: /:collection/:title/
 
 announcements:
   enabled: true
@@ -642,8 +645,6 @@ jsonresume:
   - projects
   - volunteer
   - awards
-  - certificates
   - skills
   - languages
-  - interests
   - references

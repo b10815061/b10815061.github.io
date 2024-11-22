@@ -1,0 +1,72 @@
+{% assign video_path = include.path | remove: '.mp4' | remove: '.webm' | remove: '.mov' %}
+{% assign parts = include.path | split: '.' %}
+{% assign ext = parts.last %}
+
+<figure
+  {% if include.slot %}
+    slot="{{ include.slot }}"
+  {% endif %}
+>
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    {% if include.class %}
+      class="{{ include.class }}"
+    {% endif %}
+    {% if include.width %}
+      width="{{ include.width }}"
+    {% else %}
+      width="100%"
+    {% endif %}
+    {% if include.height %}
+      height="{{ include.height }}"
+    {% else %}
+      height="auto"
+    {% endif %}
+    {% if include['min-width'] or include['min-height'] or include['max-width'] or include['max-height'] %}
+      style="
+        {% if include['min-width'] %}
+          min-width: {{ include.min-width }};
+        {% endif %}
+        {% if include['min-height'] %}
+          min-height: {{ include.min-height }};
+        {% endif %}
+        {% if include['max-width'] %}
+          max-width: {{ include.max-width }};
+        {% endif %}
+        {% if include['max-height'] %}
+          max-height: {{ include.max-height }};
+        {% endif %}
+        object-fit: cover;
+      "
+    {% else %}
+      style="object-fit: cover;"
+    {% endif %}
+    {% if include.loading %}
+      loading="{{ include.loading }}"
+    {% elsif site.lazy_loading_videos %}
+      loading="lazy"
+    {% endif %}
+  >
+    <!-- Primary video source -->
+    <source 
+      src="{% if include.url %}{{ include.url }}{% elsif include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url }}{% endif %}"
+      type="video/{{ ext }}"
+    >
+    
+    <!-- Fallback video source (if provided) -->
+    {% if include.fallback_path %}
+      {% assign fallback_ext = include.fallback_path | split: '.' | last %}
+      <source 
+        src="{{ include.fallback_path | relative_url }}"
+        type="video/{{ fallback_ext }}"
+      >
+    {% endif %}
+  </video>
+
+  {% if include.caption %}
+    <figcaption class="caption">{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>

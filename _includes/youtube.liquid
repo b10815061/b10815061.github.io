@@ -1,0 +1,77 @@
+{% assign youtube_id = include.id | default: include.path %}
+
+<!-- Extract video ID from URL if full URL is provided -->
+{% if youtube_id contains "youtube.com" or youtube_id contains "youtu.be" %}
+  {% if youtube_id contains "youtube.com/watch?v=" %}
+    {% assign youtube_id = youtube_id | split: "watch?v=" | last | split: "&" | first %}
+  {% elsif youtube_id contains "youtu.be/" %}
+    {% assign youtube_id = youtube_id | split: "youtu.be/" | last | split: "?" | first %}
+  {% elsif youtube_id contains "youtube.com/embed/" %}
+    {% assign youtube_id = youtube_id | split: "youtube.com/embed/" | last | split: "?" | first %}
+  {% endif %}
+{% endif %}
+
+<figure
+  {% if include.slot %}
+    slot="{{ include.slot }}"
+  {% endif %}
+>
+  <div
+    class="youtube-container {% if include.class %}{{ include.class }}{% endif %}"
+    style="
+      position: relative;
+      width: 100%;
+      {% if include.aspect_ratio %}
+        padding-bottom: {{ include.aspect_ratio }};
+      {% else %}
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      {% endif %}
+      {% if include['min-width'] %}
+        min-width: {{ include.min-width }};
+      {% endif %}
+      {% if include['min-height'] %}
+        min-height: {{ include.min-height }};
+      {% endif %}
+      {% if include['max-width'] %}
+        max-width: {{ include.max-width }};
+      {% endif %}
+      {% if include['max-height'] %}
+        max-height: {{ include.max-height }};
+      {% endif %}
+    "
+  >
+    <iframe
+      src="https://www.youtube.com/embed/{{ youtube_id }}{% if include.autoplay %}?autoplay=1&mute=1{% endif %}{% if include.start_time %}&start={{ include.start_time }}{% endif %}{% if include.end_time %}&end={{ include.end_time }}{% endif %}{% if include.playlist %}&playlist={{ include.playlist }}{% endif %}"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      "
+      {% if include.title %}
+        title="{{ include.title }}"
+      {% else %}
+        title="YouTube video player"
+      {% endif %}
+      frameborder="0"
+      {% if include.allow %}
+        allow="{{ include.allow }}"
+      {% else %}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      {% endif %}
+      allowfullscreen
+      {% if include.loading %}
+        loading="{{ include.loading }}"
+      {% elsif site.lazy_loading_videos %}
+        loading="lazy"
+      {% endif %}
+    >
+    </iframe>
+  </div>
+
+  {% if include.caption %}
+    <figcaption class="caption">{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>

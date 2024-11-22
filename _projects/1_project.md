@@ -4,7 +4,7 @@ title: Virtual Room Reservation Assistant (VRRA)
 description: A mimic of online reservation system to multi-users use. Integrated with Google Authentication API and Google Calander API. This is the final project of Software Engineering CSXXXX.
 img: assets/img/VRRA/MVC.png
 importance: 1
-category: work
+category: school
 related_publications: false
 ---
 
