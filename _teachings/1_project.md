@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Llama3 Laboratory @ MediaTek
-description: In this lab, we explaind the essential design choices used by llama3, including RMSNorm, Rotrary Embedding, SwiGLU, Group Query, and KV cache.
+description: In this lab, we explaind the essential design choices used by llama3, including RMSNorm, Rotrary Embedding, and KV cache.
 img: assets/img/teachings/llama3/rotarary.png
 importance: 1
 category: work
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-Basically, the norm method is selected to be RMSNorm mainly becuase [Some research] shows that RMS Norm has the pretty equal ability to achieve other norms, with lower computation thus speed up the inference speed.
+RMSNorm was selected as the normalization method due to its computational efficiency while maintaining normalization effectiveness, as originally demonstrated by <a href="https://arxiv.org/abs/1910.07467">Zhang and Sennrich (2019)</a>. The advantages of RMSNorm are twofold: it reduces computational complexity by eliminating the mean statistics and centering operation present in LayerNorm, while maintaining comparable model performance. This efficiency-to-performance ratio has led to its adoption in several prominent language models including <a href="https://arxiv.org/abs/2112.11446">Gopher (Rae et al., 2021)</a>, <a href="https://arxiv.org/abs/2302.13971">LLaMA (Touvron et al., 2023)</a>, and <a href="https://arxiv.org/abs/2307.09288">LLaMA 2 (Touvron et al., 2023)</a>.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/teachings/llama3/RMSNorm.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -129,7 +129,7 @@ Basically, the norm method is selected to be RMSNorm mainly becuase [Some resear
 </div>
 
 
-Compared to standard position embedding, which is categorized into "absolute embedding", rotarary proposed by [Some Research] is more flexible. First of all, a relative embedding in nature helps the model to learn an arbitrary position of embedding. The computation is somewhat easy, we first compute the rotation of each embedding dimension, then we take the inner product of the word embedding and the positional embedding.
+Compared to standard positional embedding (categorized as 'absolute embedding'), <a href="https://arxiv.org/abs/2104.09864"> rotary position embedding (Su et al., 2021</a>) offers greater flexibility. The key advantage of rotary embedding lies in its relative nature, which enables the model to learn position-dependent representations without being constrained to fixed absolute positions. The computation process involves two main steps: first, calculating the rotation for each embedding dimension, then computing the inner product between the rotated word embeddings and positional embeddings. This is visualized across three plots: the leftmost shows the original word embeddings, the middle displays the rotary embedding base vectors, and the rightmost demonstrates the final rotated embeddings. The transformation preserves the relative relationships between tokens while allowing for more flexible position modeling.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -140,15 +140,12 @@ Compared to standard position embedding, which is categorized into "absolute emb
     A 2D visualization of rotarary embedding, we did not scale the original embedding to better preserve the embedding length. The left shows the original embedding, the middle is the rotary positional embedding. The rotary mechanism ensure that no matter which exact position of the 2 words in the sequence are, they remain the same distance to each other. (While in the standard positional embeddings, [????]). The right is taking the inner product of the word and positional embedding. Note: This visualization only shows the first 2 dimensions of all embeddings. An interactable is provided in the colab.
 </div>
 
-KV Cache section, need implementation.
+The KV (Key-Value) Cache implementation optimizes transformer inference by storing and reusing previously computed key and value tensors. When generating tokens sequentially, instead of recomputing attention for the entire sequence, the implementation caches past key-value pairs and only computes attention for the new token (<a href="https://arxiv.org/abs/2107.14500">Dao et al., 2022</a>). This significantly reduces computational overhead, especially for long sequences. As shown in the diagram, the top half illustrates standard attention without caching (computing full Q×K^T for all tokens), while the bottom half demonstrates cached attention (computing Q×K^T only for the new token by reusing stored keys). The implementation includes a KVCache dataclass for managing the cache state and a CachedAttention module that leverages this cache during inference.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/teachings/llama3/KVCache.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
 </div>
 
 

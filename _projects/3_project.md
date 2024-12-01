@@ -1,7 +1,7 @@
 ---
 layout: page
-title: new annotation website
-description: a project that redirects to another website
+title: Coach Vision
+description: The final version of our annotation site. I apply the feedbacks from both the domain expert and research needs.
 img: assets/img/new_annotation_system/filter_page.png
 importance: 3
 category: work 

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Old Annotation System
-description: a project with a background image and giscus comments
+title: NLP Annotation Tools
+description: Our prototype to an instruction-annotating system
 img: assets/img/old_annotation_system/mainPage.png
 importance: 2
 category: work

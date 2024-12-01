@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     max-width="600px"
     aspect_ratio="100%"
     class="featured-post"
-    caption="Featured Instagram Post"
+    caption="Final term demonstration. This demonstration serves as our final report to the National Science and Technology Council, showcasing our system (instruction generation)'s capabilities. The presentation was shared by my advisor, Dr. Ku."
     hide_caption=true
     %}
     </div>
@@ -117,9 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {% include youtube.liquid path="https://youtu.be/bhH3Bjbk6Rk" %}
     </div>
 </div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
+<div class="caption">Our system demonstration video. This demonstration was created for the <a href="https://www.futuretech.org.tw/futuretech/index.php">2024 Futex</a> competition.</div>
 
 
 

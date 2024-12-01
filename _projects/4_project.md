@@ -1,7 +1,7 @@
 ---
 layout: page
 title: twVLM demo
-description: We trained ViT + twllm (70B) to create the first vlm that speaks traditional chinese.
+description: We continuosly pretrained ViT + twllm (70B) to create the first vlm that speaks traditional chinese.
 img: assets/img/twVLM/llama-in-tw.jpeg
 importance: 3
 category: demo
@@ -99,25 +99,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/twVLM/waterloo.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
 
+This is an ongoing project. During development, we utilize a combination of VisionTransformer, MLP, and Taiwan Llama for our model architecture. Our current findings demonstrate that the model maintains instruction-following capabilities even without explicit prompt training. We attribute this behavior to Taiwan Llama's inherent instruction-aligned nature from its pre-training.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/twVLM/bubble-tea.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    The model exhibits reasoning skills. In the prompt we asked: Where is the bubble tea originate from? The model responded with "Taiwan"
+</div>
+
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/twVLM/waterloo.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/twVLM/notre-dame.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Left: Question: Where is this place? Answer: "University of Waterloo locates at Waterloo, Provice of Ontario, Canada".
+    Right: Question: What is this? Answer: Notre Dame de Paris.
 </div>
 

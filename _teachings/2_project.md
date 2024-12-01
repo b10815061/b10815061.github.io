@@ -116,7 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
     The overview of the RAG pipeline. When a user query gets in, model retrieves the most relevant document in the database. Then a LLM is employed to summarize the result and return the answer. In this lab, we will use LangChain as our external DB. Llama3, served with ollama, as our LLM.
 </div>
 
-A brief introduction to langchain.
+LangChain is an open-source framework designed to develop applications powered by language models. The framework is structured in layers (left image): LangChain-Core provides the fundamental building blocks, LangChain-Community offers integration components, and LangChain proper includes chains, agents, and retrieval strategies. LangServe enables deployment, while LangSmith provides observability.
+The right image illustrates the typical LangChain workflow through four key stages: LOAD (ingesting various document formats like PDFs, JSONs, and URLs), SPLIT (chunking documents into manageable segments), EMBED (converting text chunks into vector embeddings), and STORE (saving embeddings in vector stores for efficient retrieval). This pipeline enables applications to process, understand, and retrieve information from diverse data sources effectively.
+For more details, visit: <a href="https://github.com/langchain-ai/langchain">LangChain GitHub Repository</a>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-4 mt-3 mt-md-0">
@@ -126,11 +128,9 @@ A brief introduction to langchain.
         {% include figure.liquid path="assets/img/teachings/RAG/split.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
 
-Make the embedding model yourself!
+
+The embedding model plays crucial role when retrieving, an example of training the model is to leverage contrasive learning. Contrastive learning optimizes representations by minimizing the distance between similar pairs while maximizing it for dissimilar ones. The model implementation follows the approach presented in (<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Understanding_the_Behaviour_of_Contrastive_Loss_CVPR_2021_paper.pdf">Wang et al., 2021</a>). The loss function ℓᵢⱼ shown at the top computes the negative log ratio between the similarity of positive pairs exp(sim(zᵢ, zⱼ)/τ) and the sum of similarities with all other samples in the batch. The temperature parameter τ controls the concentration of the distribution - lower values (e.g., τ=0.07) lead to more concentrated clusters as shown in the bottom right visualization, while higher values (e.g., τ=0.2) result in more spread-out embeddings. The model maps inputs into a hypersphere where semantically similar items are pulled closer together while pushing dissimilar ones apart.
 <div class="row justify-content-sm-center">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/teachings/RAG/Contrasitive.png" title="Contrastive" class="img-fluid rounded z-depth-1" %}
@@ -147,7 +147,7 @@ Make the embedding model yourself!
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    An interactive demonstration of contrastive learning, where as positive examples move closer to the anchor point (blue), the loss decreases, while moving negative examples (red) away from the anchor reduces the loss. As the temperature parameter τ approaches zero, the loss becomes more sensitive to distances, creating sharper decision boundaries. It is worth noting that in high-dimensional spaces, the distance metric is not Euclidean but rather cosine similarity, making the angle between vectors more important than absolute distances.
 </div>
 
 
