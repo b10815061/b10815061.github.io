@@ -134,7 +134,7 @@ This project follows a strict concept of software engineering principle, here we
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Software Architecture Diagram illustrating the Model-View-Controller (MVC) pattern with modular package organization. The Model component contains database services and business logic, the Controller handles routing and middleware operations, and the View manages the presentation layer through a router/controller interface. Arrows indicate the data flow and component interactions within the system.
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -142,7 +142,7 @@ This project follows a strict concept of software engineering principle, here we
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Package Dependencies and Architecture Overview.
 </div>
 
 
