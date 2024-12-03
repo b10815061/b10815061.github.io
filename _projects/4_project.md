@@ -1,7 +1,7 @@
 ---
 layout: page
 title: twVLM demo
-description: We continuosly pretrained ViT + twllm (70B) to create the first vlm that speaks traditional chinese.
+description: We conduct continual pretraining on ViT + twllm (70B) to create the first vlm that speaks traditional chinese.
 img: assets/img/twVLM/llama-in-tw.jpeg
 importance: 3
 category: demo
