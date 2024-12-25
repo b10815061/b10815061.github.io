@@ -121,7 +121,15 @@ This is an ongoing project. During development, we utilize a combination of Visi
     </div>
 </div>
 <div class="caption">
-    Left: Question: Where is this place? Answer: "University of Waterloo locates at Waterloo, Provice of Ontario, Canada".
+    Left: Question: Where is this place? Answer: "University of Waterloo locates at Waterloo, Province of Ontario, Canada".
     Right: Question: What is this? Answer: Notre Dame de Paris.
 </div>
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/twVLM/cmu.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Question: Where is this place? Answer: "Carnegie Mellon University is a private research university located in Pittsburgh, Pennsylvania, USA.".
+</div>
