@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="caption">
-    This lab is conducted with my smartest collegue, Jason, during our time in Institute of Information Science, Academia Sinica. The target audience are engineers from MediaTek. One of the world's leading semiconductor solution company.
+    This lab is conducted with my smartest collegue, Jason, during our time in Institute of Information Science, Academia Sinica. The target audience are engineers from MediaTek, one of the world's leading semiconductor solution company.
 </div>
 
 <div class="row">

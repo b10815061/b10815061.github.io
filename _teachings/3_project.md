@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 <div class="caption">
-    This lab is conducted with Feiyueh, during our time in Institute of Information Science, Academia Sinica. The target audience are doctors in the phd-level class, Nation Chung Guan University.
+    This lab is conducted with Feiyueh, during our time in Institute of Information Science, Academia Sinica. The target audience are doctors in the phd-level class at Nation Chung Guan University.
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
