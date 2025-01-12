@@ -114,10 +114,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
+        {% include youtube.liquid path="https://www.youtube.com/watch?v=m7LDiiOyHjQ&ab_channel=SuYu-An%28Tommy%29" %}
+    </div>
+</div>
+<div class="caption">This educational video demonstrates the methodology to convert videos to meaningful representation and compare concept differences between learner and reference performances. As part of this group project, I develop the visualization to detail how we enables comparison of two videos. (1:06 - 1:50)</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
         {% include youtube.liquid path="https://youtu.be/bhH3Bjbk6Rk" %}
     </div>
 </div>
 <div class="caption">Our system demonstration video. This demonstration was created for the <a href="https://www.futuretech.org.tw/futuretech/index.php">2024 Futex</a> competition.</div>
+
 
 
 
