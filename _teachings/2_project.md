@@ -1,6 +1,6 @@
 ---
 layout: page
-title: RAG @ NCGU
+title: RAG @ CGU
 description: We demonstrate the example usage of LangChain. Also in the labatory section, students are assigned to improve the embedding model.
 img: assets/img/teachings/RAG/Overview.png
 importance: 2
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 <div class="caption">
-    This lab is conducted with my smartest collegue, Jason, during our time in Institute of Information Science, Academia Sinica. The target audience are doctors in the phd-level class at Nation Chung Guan University.
+    This lab is conducted with my smartest collegue, Jason, during our time in Institute of Information Science, Academia Sinica. The target audience are doctors in the phd-level class at Chung Guan University.
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
