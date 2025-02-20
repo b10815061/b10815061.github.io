@@ -1,7 +1,7 @@
 ---
 layout: page
 title: BERT @ CGU
-description: We explore the origins of BERT: why it was developed and how it revolutionized natural language processing. Followed by a hands-on workshop where students will build their own sentiment analysis model using BERT and PyTorch fundamentals.
+description: "We explore the origins of BERT: why it was developed and how it revolutionized natural language processing. Followed by a hands-on workshop where students will build their own sentiment analysis model using BERT and PyTorch fundamentals."
 img: assets/img/teachings/BERT/Overview.png
 importance: 3
 category: work
