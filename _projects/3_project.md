@@ -120,8 +120,6 @@ The main filter page: we filtered the action type into cards to better visualize
         {% include figure.liquid loading="eager" path="assets/img/new_annotation_system/filter_page.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-</div>
 
 The main annotation page. During our experiments, several problems arise:
 
