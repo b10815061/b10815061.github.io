@@ -121,7 +121,6 @@ The main filter page: we filtered the action type into cards to better visualize
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
 </div>
 
 The main annotation page. During our experiments, several problems arise:
