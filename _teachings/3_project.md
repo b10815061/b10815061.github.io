@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 <div class="caption">
-    The overview of the BERT pipeline. When a user query gets in, model retrieves the most relevant document in the database. Then a LLM is employed to summarize the result and return the answer. In this lab, we will use LangChain as our external DB. Llama3, served with ollama, as our LLM.
+    The overview of the BERT pipeline.
 </div>
 
 A comparison of traditional word embeddings and BERT's contextualized embeddings. The left image illustrates basic word embeddings where each word has a fixed vector representation in a continuous space - similar words like 'dog', 'cat', and 'rabbit' cluster together, while semantically different words like 'tree' and 'flower' occupy different regions. The right image shows BERT's (<a href="https://arxiv.org/abs/1810.04805">Devlin et al., 2019</a>) more sophisticated encoding approach, where each token's representation is dynamically influenced by its context. The visualization demonstrates how BERT combines token embeddings (E_token), segment embeddings (E_A/E_B), and positional embeddings (E_0 to E_10) to create context-aware representations, enabling the model to understand the same word differently based on its usage in different contexts.
