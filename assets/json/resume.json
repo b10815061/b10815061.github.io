@@ -2,7 +2,7 @@
   "basics": {
     "name": "Yu-An Su",
     "image": "",
-    "email": "c1l1mo600@gmail.com / yuansu@iis.sinica.edu.tw",
+    "email": "c1l1mo600@gmail.com / yuansu@andrew.cmu.edu",
     "location": {
       "address": "2712 Broadway St",
       "postalCode": "CA 94115",
@@ -25,7 +25,7 @@
       "url": "https://www.trendmicro.com/zh_tw/business.html",
       "startDate": "2022-07-01",
       "endDate": "2022-08-31",
-      "summary": "Built autoencoder to spot anomalies of hardware usage (e.g. memory leak) when validating a new version of the product."
+      "summary": ""
     },
     {
       "name": "Internation Game System",
@@ -33,14 +33,14 @@
       "url": "https://www.igs.com.tw/",
       "startDate": "2022-09-01",
       "endDate": "2023-02-28",
-      "summary": "Implemented automatic test code using OpenCV. Incorporated FasterRCNN and OCR for numerical recognition."
+      "summary": "Implemented automatic test code using OpenCV."
     },
     {
-      "name": "Natural Language Process and Sentiment Analysis. Institute of Information Science, Academia Sinica",
+      "name": "Institute of Information Science, Academia Sinica",
       "position": "Research Assistant",
       "url": "https://academiasinicanlplab.github.io/index.html",
       "startDate": "2023-03-01",
-      "endDate": "Present",
+      "endDate": "2025-02-28",
       "summary": "SportTech: Incorporated video alignment solution to detect inaccuracy of learner video to help improve the learner posture. \n Taiwan VLM: Continuosly pretrained ViT+Llama3 (70B) to Mandarin with Megatron framework.",
       "highlights": ["Leader of SportTech project","Main code contributer to the TaiwanVLM project"]
     }
@@ -57,14 +57,22 @@
   ],
   "education": [
     {
+      "institution": "Carnegie Mellon University, School of Computer Science",
+      "location": "Pittsburgh, PA",
+      "url": "https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/",
+      "area": "Computer Vision",
+      "studyType": "Graduate",
+      "startDate": "2025-08-22",
+      "endDate": "Present"
+    },
+    {
       "institution": "National Taiwan University of Science and Technology",
       "location": "Taipei, Taiwan",
       "url": "https://www.csie.ntust.edu.tw/index.php?Lang=en",
       "area": "Computer Science and Information Engineering",
-      "studyType": "undergraduate",
+      "studyType": "Undergraduate",
       "startDate": "2019-09-01",
-      "endDate": "2023-06-30",
-      "score": "3.84"
+      "endDate": "2023-06-30"
     }
   ],
   "awards": [
@@ -102,7 +110,7 @@
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Python", "C", "C++", "Go", "Node.js", "SQL", "KQL", "Shell"
+        "Python", "C", "C++","javascript", "Go", "SQL", "KQL", "Shell", "TeX"
       ]
     },
     {
@@ -110,8 +118,8 @@
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Latex", "Pytorch", "TensorFlow", "Vue", "React", "MongoDB", "Docker", "Azure", "AWS", "GCP",
-"Megatron", "srun", "ollama", "LangChain"
+        "Latex", "Pytorch", "Vue", "React", "MongoDB", "Postgres", "Docker", "Azure", "AWS", "GCP",
+"Megatron", "Slurm", "Ollama", "LangChain", "Node.js"
       ]
     }
   ],

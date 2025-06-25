@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: about ## look for _layouts/about
 title: About
 permalink: /
 # subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.

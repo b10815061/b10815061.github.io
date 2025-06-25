@@ -314,7 +314,21 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        function resizeAchievement() {
+            const maxWidth = 490;
+            const windowWidth = $(window).width();
+            const finalWidth = Math.min(maxWidth, windowWidth);
+
+            $('.achievement').css('width', finalWidth + 'px');
+        }
+
+        $(document).ready(function() {
+            resizeAchievement();
+            $(window).on('resize', resizeAchievement);
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             const achievements = [
                 {
@@ -365,6 +379,14 @@
                     description: "First VLM that speaks Mandarin",
                     image: "/assets/img/twVLM/llama-in-tw.jpeg",
                     segment: 6
+                },
+                {
+                    id:7,
+                    title: "Master degree",
+                    date: "(expected) Aug 2025",
+                    description: "I am going to study computer vision at CMU!",
+                    image: "/assets/img/About/cmu_ri.png",
+                    segment: 7
                 }
             ];
 
